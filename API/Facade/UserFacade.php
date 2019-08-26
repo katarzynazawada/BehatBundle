@@ -76,12 +76,12 @@ class UserFacade
         $this->roleService->assignRoleToUser($role, $user);
     }
 
-    public function assignUserGroupToRole($userGroupName, $roleName)
+    public function assignUserGroupToRole($userGroupName, $roleName, $roleLimitation)
     {
         $group = $this->loadUserGroupByName($userGroupName);
         $role = $this->roleService->loadRoleByIdentifier($roleName);
 
-        $this->roleService->assignRoleToUserGroup($role, $group);
+        $this->roleService->assignRoleToUserGroup($role, $group, $roleLimitation);
     }
 
     public function getDefaultPassword(): string

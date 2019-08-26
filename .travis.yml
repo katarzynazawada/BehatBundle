@@ -29,6 +29,9 @@ matrix:
     - name: "BehatBundle tests"
       php: 7.3
       env: BEHAT_OPTS="--profile=behat"
+    - name: "BehatBundle Personas"
+      php: 7.3
+      env: BEHAT_OPTS="--profile=behat --suite=personas"
     - name: "AdminUI Modules tests"
       php: 7.3
       env: BEHAT_OPTS="--profile=adminui --suite=adminuimodules"
