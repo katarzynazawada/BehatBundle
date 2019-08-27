@@ -57,7 +57,7 @@ behat:
                       projectDir: '%paths.base%'
         personas:
               paths:
-                - '%paths.base%/vendor/ezsystems/behatbundle/EzSystems/BehatBundle/features/personas'
+                - '%paths.base%/vendor/ezsystems/behatbundle/EzSystems/BehatBundle/Features/personas'
               contexts:
                 - EzSystems\BehatBundle\Context\Api\TestContext:
                     userService: '@ezpublish.api.service.user'
