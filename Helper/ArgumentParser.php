@@ -8,6 +8,7 @@ namespace EzSystems\BehatBundle\Helper;
 
 use Behat\Gherkin\Node\TableNode;
 use EzSystems\BehatBundle\API\Facade\RoleFacade;
+use EzSystems\EzPlatformAdminUi\Behat\Helper\EzEnvironmentConstants;
 
 class ArgumentParser
 {
@@ -16,6 +17,16 @@ class ArgumentParser
         $this->roleFacade = $roleFacade;
     }
 
+    /**
+     * Generates URLAlias value based on given Content Path.
+     *
+     * Example: Home/New Folder => /Home/New-Folder
+     * Example: root => /
+     *
+     * @param string $url
+     *
+     * @return mixed|string
+     */
     public function parseUrl(string $url)
     {
         if ($url === 'root') {
@@ -42,5 +53,19 @@ class ArgumentParser
         }
 
         return $parsedLimitations;
+    }
+
+    /**
+     * Replaces the 'root' keyword with the name of the real root Content Item.
+     *
+     * Example: root/MyItem1 => eZ Platform/MyItem1 on ezplatform and Home/MyItem1 on ezplatform-ee
+     *
+     * @param string $path
+     *
+     * @return string
+     */
+    public function parseLocationPath(string $path): string
+    {
+        return str_replace('root', EzEnvironmentConstants::get('ROOT_CONTENT_NAME'), $path);
     }
 }
