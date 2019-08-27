@@ -24,7 +24,6 @@ Feature: Editor that has access only to a Subtree of Content Structure
     And I create a role "BasicRole" with policies
       | module      | function   |
       | user        | login      |
-      | content     | cleantrash |
     And I create a role "SubtreeEditorsRole" with policies
       | module      | function           |
       | content     | read               |
