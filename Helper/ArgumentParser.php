@@ -12,6 +12,8 @@ use EzSystems\EzPlatformAdminUi\Behat\Helper\EzEnvironmentConstants;
 
 class ArgumentParser
 {
+    private const ROOT_KEYWORD = 'root';
+
     public function __construct(RoleFacade $roleFacade)
     {
         $this->roleFacade = $roleFacade;
@@ -64,8 +66,8 @@ class ArgumentParser
      *
      * @return string
      */
-    public function parseLocationPath(string $path): string
+    public function replaceRootKeyword(string $path): string
     {
-        return str_replace('root', EzEnvironmentConstants::get('ROOT_CONTENT_NAME'), $path);
+        return str_replace(self::ROOT_KEYWORD, EzEnvironmentConstants::get('ROOT_CONTENT_NAME'), $path);
     }
 }
